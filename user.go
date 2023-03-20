@@ -93,8 +93,9 @@ func (this *User) DoMessage(msg string) {
 			return
 		}
 		remoteUser.sendMsg(this.Name + "对您说:" + content)
+	} else {
+		this.server.BroadCast(this, msg)
 	}
-	this.server.BroadCast(this, msg)
 }
 
 func (this *User) sendMsg(msg string) {
